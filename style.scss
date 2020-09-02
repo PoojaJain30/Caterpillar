@@ -1,0 +1,10 @@
+$primary-color: #008000;
+$secondry-color: #000000;
+$shadow-color: #104421;
+$radius: 50%;
+
+@mixin transform($property) {
+    -webkit-transform: $property;
+    -ms-transform: $property;
+    transform: $property;
+  }
