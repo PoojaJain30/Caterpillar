@@ -2,9 +2,194 @@ $primary-color: #008000;
 $secondry-color: #000000;
 $shadow-color: #104421;
 $radius: 50%;
+$width : 10px;
+$height: 10px;
 
 @mixin transform($property) {
-    -webkit-transform: $property;
-    -ms-transform: $property;
-    transform: $property;
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+
+@mixin animation($animation,$duration,$function,$count) {
+  -webkit-animation: $animation $duration $function $count;
+  animation: $animation $duration $function $count;
+}
+
+%display-setting {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.main {
+  height: 100%;
+  width: 100%;
+  @extend %display-setting;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+
+}
+
+.row {
+  position: relative;
+  width: 800px;
+  max-width: 800px;
+  @extend %display-setting;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.base {
+  width: 120px;
+  height: 120px;
+  border-radius: $radius;
+  background: $primary-color;
+  -webkit-box-shadow: 9px 11px 3px -10px $shadow-color;
+  box-shadow: 9px 11px 3px -10px $shadow-color;
+
+}
+
+.face {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  @extend %display-setting;
+}
+
+.eyes {
+  width: 20px;
+  height: 20px;
+  margin-left: 15%;
+  margin-top: 25%;
+  border-radius: $radius;
+  background: white;
+}
+
+.twigs {
+  position: absolute;
+  width: 20px;
+  height: 10px;
+  border: solid 5px $primary-color;
+  border-color: $primary-color transparent transparent transparent;
+  border-radius: 50%/12px 10px 0 0;
+  @include transform(rotate(90deg));
+}
+
+.circ {
+  position: absolute;
+  width: $width;
+  height: $height;
+  border-radius: $radius;
+  background: $primary-color;
+}
+
+.one {
+  left: 20%;
+  top: -10%;
+
+  .circ {
+    top: -45%;
+    left: -5%;
   }
+}
+
+.two {
+  left: 40%;
+  top: -10%;
+  @include transform(rotate(270deg));
+
+  .circ {
+    top: -4px;
+    right: -12%;
+  }
+}
+
+.pupil {
+  width: $width;
+  height: $height;
+  margin-left: 15%;
+  margin-top: 25%;
+  border-radius: $radius;
+  background: $secondry-color;
+  @include animation(move, 0.8s ,ease-in-out,infinite);
+}
+
+@-webkit-keyframes move {
+  from {
+    @include transform(translateX(5px));  
+  }
+
+  to {
+    @include transform(translateX(0px));
+  }
+}
+
+@keyframes move {
+  from {
+    @include transform(translateX(5px));
+  }
+
+  to {
+    @include transform(translateX(0px));
+  }
+}
+
+.smile {
+  position: absolute;
+  width: 60px;
+  height: 15px;
+  margin-left: 16%;
+  margin-top: 20%;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+  border: solid 3px $secondry-color;
+  border-color: $secondry-color transparent transparent transparent;
+  border-radius:50%/16px 16px 0 0;
+  @include transform(rotate(180deg));
+}
+
+.curve1 {
+  position: absolute;
+  left: 11%;
+  top: 5%;
+  @include animation(move, 0.8s ,ease-in-out,infinite);
+}
+
+.curve2 {
+  position: absolute;
+  left: 20%;
+  top: 10%;
+
+}
+
+.curve3 {
+  position: absolute;
+  left: 30%;
+  top: 15%;
+  @include animation(move, 0.8s ,ease-in-out,infinite);
+}
+
+.curve4 {
+  position: absolute;
+  left: 40%;
+  top: 10%;
+}
+
+.curve5 {
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  @include animation(move, 0.8s ,ease-in-out,infinite);
+}
