@@ -1,0 +1,27 @@
+{
+  "name": "caterpillar",
+  "version": "1.0.0",
+  "description": "(caperpollar using style)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PoojaJain30/Caterpillar.git"
+  },
+  "author": " (Pooja Jain)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PoojaJain30/Caterpillar/issues"
+  },
+  "homepage": "https://github.com/PoojaJain30/Caterpillar#readme",
+  "dependencies": {
+    "gulp-cssnano": "^2.1.3",
+    "gulp-sass": "^4.1.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
